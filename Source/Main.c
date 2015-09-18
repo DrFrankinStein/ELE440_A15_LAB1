@@ -7,7 +7,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 #include "testing.h"
 
 /*
@@ -33,10 +32,11 @@ int main(int argc, char** argv)
     //Initialisation des variables
     
     //Initialisation de la matrice N
-    //for(i = 0; i < NSIZE; i++)
-    //{
-    //    N[i] = NFACTOR * K[i];
-    //}
+
+    for(i = 0; i < NSIZE; i++)
+    {
+        N[i] = NFACTOR * K[i];
+    }
     
     
     TriParTas(T, 16);
