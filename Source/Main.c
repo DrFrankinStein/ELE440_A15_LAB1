@@ -1,37 +1,36 @@
 /* 
- * File:   Testing.c
+ * File:   Main.c
  * Author: PPoucH
  *
  * Created on 11 septembre 2015, 09:53
  */
 
+
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "testing.h"
+
+//PROTOTYPES
+void TriParInsertion(int *Donnees,int taille);
 
 /*
  * 
  */
-int main(int argc, char** argv)
+int main2(int argc, char** argv)
 {
-    
-    
     //Déclaration des variables
     
-    int iSucces;
-    int i;
-    int j;
-    int k;
+    //int iSucces;
     int n;
     int d;
     int r;
-    int m;
     int N[NSIZE];
     
     //Initialisation des variables
     
     //Initialisation de la matrice N
-    for(i = 0; i < NSIZE; i++)
+    for(int i = 0; i < NSIZE; i++)
     {
         N[i] = NFACTOR * K[i];
     }
@@ -65,17 +64,17 @@ int main(int argc, char** argv)
      */
     printf("%i",K[1]);
     
-    for (i = 1; i <= 10; i++)
+    for (int i = 1; i <= 10; i++)
     {
         n = N[i];
         int T1[n];
-        for(j = 1; j <= 4; j++)
+        for(int j = 1; j <= 4; j++)
         {
             r = R[j];
-            for(k = 1; k <= 5; k++)
+            for(int k = 1; k <= 5; k++)
             {
                 d = D[k];
-                for (m = 1; m <= 10; m++)
+                for (int m = 1; m <= 10; m++)
                 {
                     //T1[] = GenererDonnees(n, r, d);
                     //TriParInsertion(T1, n, r);
@@ -91,14 +90,46 @@ int main(int argc, char** argv)
     return (EXIT_SUCCESS);
 }
 
+void printIntArray(int* T, int n)
+{
+    for(int i =0;i<n;i++)
+    {
+        printf("%i ", T[i]);
+    }
+    printf("\n\r");
+    
+}
+
+int main(int argc, char** argv)
+{
+    char z;
+    int T[10]={10,9,8,7,6,5,4,3,2,1};
+    TriParInsertion(T,10);
+    return (EXIT_SUCCESS);
+}
+
 int GenererDonnees (int n,int r,int d)
 {
     
 }
 
-void TriParInsertion(int iDonnees,int n, int r)
+//source : https://fr.wikipedia.org/wiki/Tri_par_insertion
+void TriParInsertion(int *Donnees,int taille)
 {
-    
+    int tmp, j;
+    printIntArray(Donnees,taille);
+    for(int i=1; i<=taille-1; i++)
+    {
+        tmp=Donnees[i];
+        j=i;
+        while(j>0&&Donnees[j-1]>tmp)
+        {
+            Donnees[j]=Donnees[j-1];
+            j--;
+        }
+        Donnees[j]=tmp;
+        printIntArray(Donnees,taille);
+    }
 }
 
 void TriPigeonnier(int iDonnees,int n,int r)
