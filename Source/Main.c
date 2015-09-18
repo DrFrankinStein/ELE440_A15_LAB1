@@ -77,13 +77,13 @@ int main(int argc, char** argv)
                 d = D[k];
                 for (m = 1; m <= 10; m++)
                 {
-                    T1[] = GenererDonnees(n, r, d);
-                    TriParInsertion(T1, n, r);
-                    TriPigeonnier(T1, n, r);
-                    TriRapide(T1, n, r);
-                    TriParFusion(T1, n, r);
-                    TriParTas(T1, n, r);
-                    TriParBase(T1, n, r);
+                    //T1[] = GenererDonnees(n, r, d);
+                    //TriParInsertion(T1, n, r);
+                    //TriPigeonnier(T1, n, r);
+                    //TriRapide(T1, n, r);
+                    //TriParFusion(T1, n, r);
+                    //TriParTas(T1, n, r);
+                    //TriParBase(T1, n, r);
                 }
             }
         }
@@ -96,29 +96,29 @@ int GenererDonnees (int n,int r,int d)
     
 }
 
-void TriParInsertion(iDonnees, n, r)
+void TriParInsertion(int iDonnees,int n, int r)
 {
     
 }
 
-void TriPigeonnier(iDonnees, n, r)
+void TriPigeonnier(int iDonnees,int n,int r)
 {
     
 }
                     
-void TriRapide(iDonnees, n, r)
+void TriRapide(int iDonnees, int n, int r)
 {
     
 }
-void TriParFusion(iDonnees, n, r)
+void TriParFusion(int iDonnees, int n, int r)
 {
     
 }
-void TriParTas(iDonnees, n, r)
+void TriParTas(int iDonnees, int n, int r)
 {
     
 }
-void TriParBase(iDonnees, n, r)
+void TriParBase(int iDonnees, int n, int r)
 {
     
 }
