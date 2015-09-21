@@ -9,10 +9,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <time.h>
 #include "testing.h"
 
 //PROTOTYPES
 void TriParInsertion(int *Donnees,int taille);
+void TriRapide(int* Donnees, int indexPremier, int indexDernier);
 
 /*
  * 
@@ -104,7 +106,9 @@ int main(int argc, char** argv)
 {
     char z;
     int T[10]={10,9,8,7,6,5,4,3,2,1};
-    TriParInsertion(T,10);
+    printIntArray(T,10);
+    TriRapide(T,0,9);
+    printIntArray(T,10);
     return (EXIT_SUCCESS);
 }
 
@@ -117,7 +121,7 @@ int GenererDonnees (int n,int r,int d)
 void TriParInsertion(int *Donnees,int taille)
 {
     int tmp, j;
-    printIntArray(Donnees,taille);
+    //printIntArray(Donnees,taille);
     for(int i=1; i<=taille-1; i++)
     {
         tmp=Donnees[i];
@@ -128,7 +132,7 @@ void TriParInsertion(int *Donnees,int taille)
             j--;
         }
         Donnees[j]=tmp;
-        printIntArray(Donnees,taille);
+        //printIntArray(Donnees,taille);
     }
 }
 
@@ -136,11 +140,49 @@ void TriPigeonnier(int iDonnees,int n,int r)
 {
     
 }
-                    
-void TriRapide(int iDonnees, int n, int r)
+            
+//https://fr.wikipedia.ord/Tri_rapide
+void swap(int *a, int *b)
 {
-    
+    int tmp = *a;
+    *a=*b;
+    *b=tmp;
 }
+int randInt(int min, int max)
+{
+    srand(time(NULL));
+    int range = max-min;
+    return (rand()%range)+min; 
+}
+int PartitionTableau(int* Tableau, int indexPremier, int indexDernier, int indexPivot)
+{
+    //swap T[Dernier] et T[Pivot]
+    swap(&Tableau[indexDernier],&Tableau[indexPivot]);
+    int j = indexPremier;
+    for(int i=indexPremier;i<indexDernier-1;i++)
+    {
+        if(Tableau[i]<=Tableau[indexDernier])
+        {
+            swap(&Tableau[i], &Tableau[j]);
+            j++;
+        }
+    }
+    swap(&Tableau[indexDernier],&Tableau[j]);
+    return j+1;
+}
+void TriRapide(int* Donnees, int indexPremier, int indexDernier)
+{
+    int pivot;
+    if(indexPremier<indexDernier)
+    {
+        pivot= randInt(indexPremier, indexDernier);
+        pivot= PartitionTableau(Donnees,indexPremier, indexDernier, pivot);
+        TriRapide(Donnees, indexPremier, pivot-1);
+        TriRapide(Donnees, pivot+1,indexDernier);
+    }
+}
+
+
 void TriParFusion(int iDonnees, int n, int r)
 {
     
