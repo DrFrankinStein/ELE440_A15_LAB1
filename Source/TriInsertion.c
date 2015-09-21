@@ -1,3 +1,4 @@
+#include "TriInsertion.h"
 
 //source : https://fr.wikipedia.org/wiki/Tri_par_insertion
 void TriParInsertion(int *Donnees,int taille)

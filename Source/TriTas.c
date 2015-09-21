@@ -1,3 +1,4 @@
+#include "TriTas.h"
 
 void TriParTas(int *T, int N)
 {

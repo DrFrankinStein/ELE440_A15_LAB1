@@ -1,3 +1,4 @@
+#include "TriRapide.h"
 
 //https://fr.wikipedia.ord/Tri_rapide
 void swap(int *a, int *b)
