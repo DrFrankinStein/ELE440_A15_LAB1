@@ -1,6 +1,7 @@
 #include "Testing.h"
 #include "TriFusion.h"
 #include "TriRapide.h"
+#include "TriTas.h"
 
 const int K[NSIZE] = {10,20,30,40,50,60,70,80,90,100};
 const int R[RSIZE] = {10^2,10^4,10^6,10^8};
@@ -26,8 +27,27 @@ int TestJulien(void)
     //printf("%i \n\r", Infinite());
 }
 
-int GenererDonnees (int N,int R, int D)
+void TestAlexandre(void)
 {
+    int N;
+    int R;
+    int D;
+    
+    printf("entrer : N,R,D");
+    scanf("%d", &N);
+    scanf("%d", &R);
+    scanf("%d", &D);
+    
+    int T[N];
+    
+    GenererDonnees(T, N, R, D);
+    
+    printf("\nDesordre\n");
+    printIntArray(T, N);
+}
+
+void GenererDonnees (int *T, int N,int R, int D)
+{ 
     int i;
     int m;
     int k;
@@ -40,26 +60,28 @@ int GenererDonnees (int N,int R, int D)
         Tp[i-1] = i;
     }
 
-    int T[N];
     for (i = 0; i < N; i++)
     {
         T[i] = (rand() % R);
     }
     
+    printf("\nrandom\n");
+    printIntArray(T, N);
     // Placer algorithme de notre choix ici pour trier les données.
-    //TRI_QUELCONQUE(T, N, R)
+    TriParTas(T, N);
+    
+    printf("\ntrie\n");
+    printIntArray(T, N);
     
     m = M;
     for (i = 1; i <= ((M*D)/100); i++)
     {
         k = (rand() % m);
         L = Tp[k];
-        Tp[k]=Tp[m];
+        Tp[k]=Tp[m-1];
         m = m - 1;
-        iExchange = T[M-L+1];
-        T[M-L+1] = T[M+L];
-        T[M+L] = iExchange;
+        iExchange = T[M-L];
+        T[M-L] = T[M+L-1];
+        T[M+L-1] = iExchange;
     }
-    
-    return 1;
 }

@@ -22,7 +22,8 @@ extern const int R[RSIZE];
 extern const int D[DSIZE];
 // Définition des fonctions
 
-int GenererDonnees (int n,int r,int d);
+void GenererDonnees (int *T, int N,int R,int D);
+void TestAlexandre(void);
 void printIntArray(int* T, int n);
 int TestJulien(void);
 

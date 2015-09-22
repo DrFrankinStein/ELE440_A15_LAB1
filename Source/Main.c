@@ -71,7 +71,8 @@ int main(int argc, char** argv)
         }
     }
     */
-    TestJulien();
+    //TestJulien();
+    TestAlexandre();
     return (EXIT_SUCCESS);
 }
 
