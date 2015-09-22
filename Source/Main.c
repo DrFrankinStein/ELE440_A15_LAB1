@@ -73,14 +73,5 @@ int main(int argc, char** argv)
     */
     TestJulien();
     return (EXIT_SUCCESS);
-<<<<<<< HEAD
 }
 
-
-
-
-
-
-=======
-}
->>>>>>> origin/master

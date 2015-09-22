@@ -1,4 +1,5 @@
 #include "Testing.h"
+#include "TriFusion.h"
 #include "TriRapide.h"
 
 const int K[NSIZE] = {10,20,30,40,50,60,70,80,90,100};
@@ -17,10 +18,12 @@ void printIntArray(int* T, int n)
 
 int TestJulien(void)
 {
-    int T[10]={10,9,8,7,6,5,4,3,2,1};
-    printIntArray(T,10);
-    TriRapide(T,0,9);
-    printIntArray(T,10);
+    int T[20]={99,2,44,10,9,8,7,6,5,4,3,2,1,20,15,17,55,70,100,-5};
+    printIntArray(T,20);
+    TriRapide(T,0,19);
+    printIntArray(T,20);
+    
+    //printf("%i \n\r", Infinite());
 }
 
 int GenererDonnees (int N,int R, int D)
