@@ -2,6 +2,7 @@
 #include "TriFusion.h"
 #include "TriRapide.h"
 #include "TriTas.h"
+#include "TriPigeonnier.h"
 
 const int K[NSIZE] = {10,20,30,40,50,60,70,80,90,100};
 const int R[RSIZE] = {10^2,10^4,10^6,10^8};
@@ -29,20 +30,27 @@ int TestJulien(void)
 
 void TestAlexandre(void)
 {
-    int N;
-    int R;
-    int D;
-    
-    printf("entrer : N,R,D");
+    int N = 10;
+    int R = 10;
+    int D = 60;
+    /*
+    printf("entrer N : ");
     scanf("%d", &N);
+    printf("\nentrer R : ");
     scanf("%d", &R);
+    printf("\nentrer D : ");
     scanf("%d", &D);
-    
+    */
     int T[N];
     
     GenererDonnees(T, N, R, D);
     
     printf("\nDesordre\n");
+    printIntArray(T, N);
+    
+    TriPigeonnier(T, N, R);
+    
+    printf("\npigeonnier\n");
     printIntArray(T, N);
 }
 

@@ -1,6 +1,6 @@
 #ifndef TRI_PIGEONNIER_H
 #define	TRI_PIGEONNIER_H
 
-void TriPigeonnier(int iDonnees, int n, int r);
+void TriPigeonnier(int *iTableau, int DataCount, int iRang);
 
 #endif //TRI_PIGEONNIER_H
