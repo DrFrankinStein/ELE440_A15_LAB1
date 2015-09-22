@@ -1,4 +1,5 @@
 #include "TriRapide.h"
+#include "testing.h"
 
 //https://fr.wikipedia.ord/Tri_rapide
 void swap(int *a, int *b)
@@ -6,13 +7,6 @@ void swap(int *a, int *b)
     int tmp = *a;
     *a=*b;
     *b=tmp;
-}
-
-int randInt(int min, int max)
-{
-    srand(time(NULL));
-    int range = max-min;
-    return (rand()%range)+min; 
 }
 
 int PartitionTableau(int* Tableau, int indexPremier, int indexDernier, int indexPivot)

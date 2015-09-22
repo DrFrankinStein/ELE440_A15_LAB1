@@ -5,6 +5,4 @@
 #include <stdlib.h>
 #include <time.h>
 
-void TriRapide(int* Donnees, int indexPremier, int indexDernier);
-
 #endif //TRI_RAPIDE_H

@@ -18,15 +18,14 @@ int main(int argc, char** argv)
     //Déclaration des variables
     
     int iSucces;
-    int i;
-    int j;
-    int k;
+    int i; //itérateur pour nombre de données
+    int j; //itérateur pour taille des nombres
+    int k; //itérateur pour degré de désordre
     int n;
     int d;
     int r;
     int m;
     int N[NSIZE];
-    int T[16] = {1, 20, 40, 31, 65, 73, 28, 49, 23, 65, 47, 68, 65, 92, 12, 8};
     
     //Initialisation des variables
     
@@ -37,24 +36,14 @@ int main(int argc, char** argv)
         N[i] = NFACTOR * K[i];
     }
     
-    
-    //TriParTas(T, 16);
-    
-    for (i = 0; i < 16; i++)
-    {
-        printf("%i\n",T[i]);
-    }
-    
-    */
-    /*
-    for (i = 1; i <= 10; i++)
+    for (i = 1; i <= NSIZE; i++)
     {
         n = N[i];
         int T1[n];
-        for(j = 1; j <= 4; j++)
+        for(j = 1; j <= RSIZE; j++)
         {
             r = R[j];
-            for(k = 1; k <= 5; k++)
+            for(k = 1; k <= DSIZE; k++)
             {
                 d = D[k];
                 for (m = 1; m <= 10; m++)

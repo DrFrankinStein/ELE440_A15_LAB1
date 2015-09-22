@@ -60,6 +60,7 @@ void TestAlexandre(void)
 
 void GenererDonnees (int *T, int N,int R, int D)
 { 
+    srand(time(NULL));
     int i;
     int m;
     int k;
@@ -74,6 +75,7 @@ void GenererDonnees (int *T, int N,int R, int D)
 
     for (i = 0; i < N; i++)
     {
+        
         T[i] = (rand() % R);
     }
     
@@ -96,4 +98,11 @@ void GenererDonnees (int *T, int N,int R, int D)
         T[M-L] = T[M+L-1];
         T[M+L-1] = iExchange;
     }
+}
+
+int randInt(int min, int max)
+{
+    srand(time(NULL));
+    int range = max-min;
+    return (rand()%range)+min; 
 }

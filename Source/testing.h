@@ -26,6 +26,7 @@ void GenererDonnees (int *T, int N,int R,int D);
 void TestAlexandre(void);
 void printIntArray(int* T, int n);
 int TestJulien(void);
+int randInt(int min, int max);
 
 
 #endif	/* TESTING_H */
