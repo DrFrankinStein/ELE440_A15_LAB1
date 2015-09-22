@@ -1,3 +1,7 @@
+#include <stdio.h>     
+#include <stdlib.h>
+#include <time.h>
+
 #include "Testing.h"
 #include "TriFusion.h"
 #include "TriRapide.h"
@@ -30,9 +34,9 @@ int TestJulien(void)
 
 void TestAlexandre(void)
 {
-    int N = 10;
-    int R = 10;
-    int D = 60;
+    int N = 50;
+    int R = 100;
+    int D = 75;
     /*
     printf("entrer N : ");
     scanf("%d", &N);

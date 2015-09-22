@@ -2,12 +2,12 @@
 
 void TriPigeonnier(int *iTableau, int DataCount, int iRang)
 {
-    int iDenombrement[iRang+1];
+    int iDenombrement[iRang];
     int i;
     int j;
     
     //initialisation à zéro de tous les pigeonniers.
-    for (i = 0; i <= iRang; i++)
+    for (i = 0; i < iRang; i++)
     {
         iDenombrement[i] = 0;
     }
@@ -20,13 +20,13 @@ void TriPigeonnier(int *iTableau, int DataCount, int iRang)
     
     // remplacer avec les valeurs triées.
     j = 0; // indice du tableau trié.
-    for (i = 0; i <= iRang; i++)
+    for (i = 0; i < iRang; i++)
     {
-        if (iDenombrement[i] != 0)
+        while (iDenombrement[i] != 0)
         {
             iTableau[j] = i;
             j++;
-            iDenombrement[i]--;
+            iDenombrement[i] = iDenombrement[i] - 1;
         }
     }
 }
