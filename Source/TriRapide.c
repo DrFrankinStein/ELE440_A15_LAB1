@@ -20,7 +20,7 @@ int PartitionTableau(int* Tableau, int indexPremier, int indexDernier, int index
     //swap T[Dernier] et T[Pivot]
     swap(&Tableau[indexDernier],&Tableau[indexPivot]);
     int j = indexPremier;
-    for(int i=indexPremier;i<indexDernier-1;i++)
+    for(int i=indexPremier;i<indexDernier;i++)
     {
         if(Tableau[i]<=Tableau[indexDernier])
         {
@@ -29,7 +29,7 @@ int PartitionTableau(int* Tableau, int indexPremier, int indexDernier, int index
         }
     }
     swap(&Tableau[indexDernier],&Tableau[j]);
-    return j+1;
+    return j;
 }
 
 void TriRapide(int* Donnees, int indexPremier, int indexDernier)

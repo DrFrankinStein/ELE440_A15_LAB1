@@ -7,14 +7,14 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "testing.h"
+#include "Testing.h"
 
 /*
  * 
  */
 int main(int argc, char** argv)
 {
-
+/*
     //Déclaration des variables
     
     int iSucces;
@@ -38,14 +38,14 @@ int main(int argc, char** argv)
     }
     
     
-    TriParTas(T, 16);
+    //TriParTas(T, 16);
     
     for (i = 0; i < 16; i++)
     {
         printf("%i\n",T[i]);
     }
     
-    
+    */
     /*
     for (i = 1; i <= 10; i++)
     {
@@ -71,8 +71,9 @@ int main(int argc, char** argv)
         }
     }
     */
-    
+    TestJulien();
     return (EXIT_SUCCESS);
+<<<<<<< HEAD
 }
 
 
@@ -80,3 +81,6 @@ int main(int argc, char** argv)
 
 
 
+=======
+}
+>>>>>>> origin/master
