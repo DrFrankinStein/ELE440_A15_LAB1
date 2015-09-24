@@ -1,5 +1,5 @@
 #include "TriFusion.h"
-
+//LIVRE p. 27+30
 void Fusion(int *Donnees, int indexPremier, int indexDernier, int indexMilieu)
 {
     int i,j,k;
