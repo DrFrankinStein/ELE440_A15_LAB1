@@ -19,12 +19,12 @@
 int main(int argc, char** argv)
 {
 
-    //Déclaration des variables
+    //Declaration des variables
    
     int iSucces;
-    int i; //itérateur pour nombre de données
-    int j; //itérateur pour taille des nombres
-    int k; //itérateur pour degré de désordre
+    int i; //iterateur pour nombre de donnees
+    int j; //iterateur pour taille des nombres
+    int k; //iterateur pour degre de desordre
     int n;
     int d;
     int r;
@@ -34,7 +34,7 @@ int main(int argc, char** argv)
     
     LARGE_INTEGER start, end, average, frequency;
     unsigned long long barometre, avrgBarometre;
-    char nomTest[50] = "TriBase";
+    char nomTest[50] = "TriRapide";
     
     //Initialisation des variables
     
@@ -69,7 +69,8 @@ int main(int argc, char** argv)
                     GenererDonnees(T1, n,r,d);
                     QueryPerformanceCounter(&start);
                     
-                    barometre=TriParBase(T1,n,2*j+1);
+                    barometre=TriRapide(T1,0,n-1);
+                    //barometre=TriParBase(T1,n,2*j+1);
                     //barometre=TriParFusion(T1,0,n-1);
                     //barometre=TriParInsertion(T1,n);
                     

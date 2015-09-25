@@ -3,6 +3,6 @@
 
 #include "CommonFunc.h"
 
-void TriRapide(int* Donnees, int indexPremier, int indexDernier);
+unsigned long long TriRapide(int* Donnees, int indexPremier, int indexDernier);
 
 #endif //TRI_RAPIDE_H
