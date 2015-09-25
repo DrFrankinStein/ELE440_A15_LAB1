@@ -1,8 +1,9 @@
 #include "TriFusion.h"
 
 //LIVRE p. 27+30
-void Fusion(int *Donnees, int indexPremier, int indexDernier, int indexMilieu)
+unsigned long long Fusion(int *Donnees, int indexPremier, int indexDernier, int indexMilieu)
 {
+    unsigned long long barometre=1;
     int i,j,k;
     int n1= indexMilieu-indexPremier+1;
     int n2= indexDernier-indexMilieu;
@@ -11,15 +12,21 @@ void Fusion(int *Donnees, int indexPremier, int indexDernier, int indexMilieu)
     int R[n2];
     
     for(i=0; i<=n1-1;i++)
+    {    
         L[i]=Donnees[indexPremier+i];
-
+        barometre++;
+    }
     for(j=0; j<=n2-1;j++)
+    {
         R[j]=Donnees[indexMilieu + 1 +j];
+        barometre++;
+    }
     
     i=0;
     j=0;
     for(k=indexPremier;k<=indexDernier;k++)
     {
+        barometre++;
         if(L[i]<=R[j])
         {
             if(i<n1)
@@ -32,6 +39,7 @@ void Fusion(int *Donnees, int indexPremier, int indexDernier, int indexMilieu)
                 Donnees[k]=R[j];
                 j++;
             }
+            barometre++;
         }
         else
         {
@@ -45,17 +53,22 @@ void Fusion(int *Donnees, int indexPremier, int indexDernier, int indexMilieu)
                 Donnees[k]=L[i];
                 i++;
             }
+            barometre++;
         }    
     }
+    return barometre;
 }
 
-void TriParFusion(int *Donnees, int indexPremier, int indexDernier)
+unsigned long long TriParFusion(int *Donnees, int indexPremier, int indexDernier)
 {
+    unsigned long long barometre=1;
     if(indexPremier<indexDernier)
     {
+       barometre++;
        int indexMilieu=(indexPremier+indexDernier)/2;
-       TriParFusion(Donnees,indexPremier, indexMilieu);
-       TriParFusion(Donnees,indexMilieu+1, indexDernier);   
-       Fusion(Donnees,indexPremier,indexDernier,indexMilieu);
+       barometre+=TriParFusion(Donnees,indexPremier, indexMilieu);
+       barometre+=TriParFusion(Donnees,indexMilieu+1, indexDernier);   
+       barometre+=Fusion(Donnees,indexPremier,indexDernier,indexMilieu);
     }
+    return barometre;
 }
