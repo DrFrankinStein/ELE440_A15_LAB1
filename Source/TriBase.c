@@ -1,23 +1,5 @@
 #include "TriBase.h"
 
-int Exposant(int base, int exposant)
-{
-    int ans=1;
-    for(int i=0;i<exposant;i++)
-    {
-        ans*=base;
-    }
-        
-    return ans;    
-}
-
-static void swap(int *a, int *b)
-{
-    int tmp = *a;
-    *a=*b;
-    *b=tmp;
-}
-
 //https://www.cs.usfca.edu/~galles/visualization/RadixSort.html
 void TriParBase(int *Donnees,int taille, int nbreChiffre)
 {
@@ -46,7 +28,7 @@ void TriParBase(int *Donnees,int taille, int nbreChiffre)
             }
         }
         
-        for(int k=9;k>0;k--)//comptage des index négatifs
+        for(int k=9;k>0;k--)//comptage des index negatifs
         {
             negatifChiffre[k-1]+=negatifChiffre[k];
         }

@@ -1,14 +1,6 @@
 #include "TriRapide.h"
-#include "testing.h"
 
 //https://fr.wikipedia.ord/Tri_rapide
-void swap(int *a, int *b)
-{
-    int tmp = *a;
-    *a=*b;
-    *b=tmp;
-}
-
 int PartitionTableau(int* Tableau, int indexPremier, int indexDernier, int indexPivot)
 {
     //swap T[Dernier] et T[Pivot]
