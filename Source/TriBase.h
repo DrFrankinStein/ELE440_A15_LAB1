@@ -3,6 +3,6 @@
 
 #include "CommonFunc.h"
 
-void TriParBase(int *Donnees,int taille, int ordre);
+void TriParBase(int *Donnees,int taille, int nbreChiffre);
 
 #endif //TRI_BASE_H

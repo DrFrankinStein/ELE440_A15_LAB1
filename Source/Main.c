@@ -60,8 +60,8 @@ int main(int argc, char** argv)
         }
     }
     */
-    //TestJulien();
-    TestAlexandre();
+    TestJulien();
+    //TestAlexandre();
     return (EXIT_SUCCESS);
 }
 

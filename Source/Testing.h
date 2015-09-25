@@ -17,6 +17,14 @@
 #define RSIZE 4
 #define DSIZE 5
 
+#include "CommonFunc.h"
+#include "TriBase.h"
+#include "TriFusion.h"
+#include "TriInsertion.h"
+#include "TriPigeonnier.h"
+#include "TriRapide.h"
+#include "TriTas.h"
+
 extern const int K[NSIZE];
 extern const int R[RSIZE];
 extern const int D[DSIZE];
