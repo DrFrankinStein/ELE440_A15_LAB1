@@ -2,6 +2,7 @@
 
 void TriPigeonnier(int *iTableau, int DataCount, int iRang)
 {
+    iRang++;
     int iDenombrement[iRang];
     int i;
     int j;
