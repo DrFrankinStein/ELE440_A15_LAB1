@@ -8,7 +8,7 @@
 #ifndef TESTING_H
 #define	TESTING_H
 
-// Définition des constantes
+// Definition des constantes
     
 #define DESORDRE_MIN 0
 #define DESORDRE_MAX 100
@@ -16,6 +16,9 @@
 #define NSIZE 10
 #define RSIZE 4
 #define DSIZE 5
+
+#include <stdio.h>
+#include <stdlib.h>
 
 #include "CommonFunc.h"
 #include "TriBase.h"
@@ -28,11 +31,13 @@
 extern const int K[NSIZE];
 extern const int R[RSIZE];
 extern const int D[DSIZE];
-// Définition des fonctions
+// Definition des fonctions
 
 void GenererDonnees (int *T, int N,int R,int D);
 void TestAlexandre(void);
 int TestJulien(void);
+void writeDataFileInit(char * nomTri);
+void writeDataFile(char * nomTri, int nbreDonnes, int rangeDonnees, int tauxDispersion,long long nbreInstructions, int tempsTraitement);
 
 #endif	/* TESTING_H */
 
