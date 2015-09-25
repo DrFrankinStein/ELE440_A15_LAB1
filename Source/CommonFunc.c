@@ -20,5 +20,5 @@ void printIntArray(int* T, int n)
     {
         printf("%i ", T[i]);
     }
-    printf("\n\r");
+    printf("\n\n\r");
 }

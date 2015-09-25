@@ -16,6 +16,5 @@ void swap(int *a, int *b);
 int randInt(int min, int max);
 void printIntArray(int* T, int n);
 
-
 #endif	/* COMMONFUNC_H */
 
