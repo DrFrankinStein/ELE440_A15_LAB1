@@ -5,22 +5,23 @@ void TriPigeonnier(int *iTableau, int DataCount, int iRang)
     iRang++;
     int iDenombrement[iRang];
     int i;
-    int j;
+    int j; // itérateur du tableau à renvoyer.
     
-    //initialisation à zéro de tous les pigeonniers.
+    //Initialisation à zéro de tous les pigeonniers.
     for (i = 0; i < iRang; i++)
     {
         iDenombrement[i] = 0;
     }
     
-    // dénombrement des différentes valeurs.
+    // Placer chaque valeurs dans leur pigeonnier respectif.
     for (i = 0; i < DataCount; i++)
     {
         iDenombrement[iTableau[i]]++;
     }
     
-    // remplacer avec les valeurs triées.
-    j = 0; // indice du tableau trié.
+    j = 0; // initialiser l'indice du tableau trié à retourner.
+    
+    // remplacer le vieux tableau non trié avec les valeurs triées du pigeonnier.
     for (i = 0; i < iRang; i++)
     {
         while (iDenombrement[i] != 0)
