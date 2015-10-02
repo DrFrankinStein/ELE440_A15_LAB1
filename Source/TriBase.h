@@ -3,6 +3,6 @@
 
 #include "CommonFunc.h"
 
-unsigned long long TriParBase(int *Donnees,int taille, int nbreChiffre);
+Barometre TriParBase(int *Donnees,int taille, int nbreChiffre);
 
 #endif //TRI_BASE_H

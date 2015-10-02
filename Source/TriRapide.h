@@ -3,6 +3,6 @@
 
 #include "CommonFunc.h"
 
-unsigned long long TriRapide(int* Donnees, int indexPremier, int indexDernier);
+Barometre TriRapide(int* Donnees, int indexPremier, int indexDernier);
 
 #endif //TRI_RAPIDE_H

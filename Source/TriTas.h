@@ -2,7 +2,8 @@
 #define	TRI_TAS_H
 
 #include <stdbool.h>
+#include "CommonFunc.h"
 
-void TriParTas(int *T, int N);
+Barometre TriParTas(int *T, int N);
 
 #endif //TRI_TAS_H

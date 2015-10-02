@@ -1,9 +1,10 @@
 #include "TriFusion.h"
 
 //LIVRE p. 27+30
-unsigned long long Fusion(int *Donnees, int indexPremier, int indexDernier, int indexMilieu)
+Barometre Fusion(int *Donnees, int indexPremier, int indexDernier, int indexMilieu)
 {
-    unsigned long long barometre=1;
+    Barometre barometre;
+    barometre.instructions=1;
     int i,j,k;
     int n1= indexMilieu-indexPremier+1;
     int n2= indexDernier-indexMilieu;
@@ -11,22 +12,24 @@ unsigned long long Fusion(int *Donnees, int indexPremier, int indexDernier, int 
     int L[n1];
     int R[n2];
     
+    barometre.memory=(8+n1+n2)*sizeof(int)+(3)*sizeof(int*);
+    
     for(i=0; i<=n1-1;i++)
     {    
         L[i]=Donnees[indexPremier+i];
-        barometre++;
+        barometre.instructions++;
     }
     for(j=0; j<=n2-1;j++)
     {
         R[j]=Donnees[indexMilieu + 1 +j];
-        barometre++;
+        barometre.instructions++;
     }
     
     i=0;
     j=0;
     for(k=indexPremier;k<=indexDernier;k++)
     {
-        barometre++;
+        barometre.instructions++;
         if(L[i]<=R[j])
         {
             if(i<n1)
@@ -39,7 +42,7 @@ unsigned long long Fusion(int *Donnees, int indexPremier, int indexDernier, int 
                 Donnees[k]=R[j];
                 j++;
             }
-            barometre++;
+            barometre.instructions++;
         }
         else
         {
@@ -53,22 +56,40 @@ unsigned long long Fusion(int *Donnees, int indexPremier, int indexDernier, int 
                 Donnees[k]=L[i];
                 i++;
             }
-            barometre++;
+            barometre.instructions++;
         }    
     }
     return barometre;
 }
 
-unsigned long long TriParFusion(int *Donnees, int indexPremier, int indexDernier)
+Barometre TriParFusion(int *Donnees, int indexPremier, int indexDernier)
 {
-    unsigned long long barometre=1;
+    Barometre barometre;
+    barometre.instructions=1;
+    barometre.memory=(2)*sizeof(int)+(1)*sizeof(int*);
+    
     if(indexPremier<indexDernier)
     {
-       barometre++;
+        Barometre tmp1, tmp2;
+        
+       barometre.instructions++;
+       barometre.memory+=sizeof(int);
+       tmp1=barometre;
+       
        int indexMilieu=(indexPremier+indexDernier)/2;
-       barometre+=TriParFusion(Donnees,indexPremier, indexMilieu);
-       barometre+=TriParFusion(Donnees,indexMilieu+1, indexDernier);   
-       barometre+=Fusion(Donnees,indexPremier,indexDernier,indexMilieu);
+       
+       tmp2=TriParFusion(Donnees,indexPremier, indexMilieu);
+       barometre.instructions+=tmp2.instructions;
+       barometre.memory = barometre.memory>tmp2.memory ? barometre.memory:tmp1.memory+tmp2.memory ;
+       
+       tmp2=TriParFusion(Donnees,indexMilieu+1, indexDernier);
+       barometre.instructions+=tmp2.instructions;
+       barometre.memory = barometre.memory>tmp2.memory ? barometre.memory:tmp1.memory+tmp2.memory ;
+       
+       
+       tmp2=Fusion(Donnees,indexPremier,indexDernier,indexMilieu);
+       barometre.instructions+=tmp2.instructions;
+       barometre.memory = barometre.memory>tmp2.memory ? barometre.memory:tmp1.memory+tmp2.memory ;
     }
     return barometre;
 }

@@ -12,6 +12,12 @@
 #include <stdlib.h>
 #include <time.h>
 
+typedef struct Barometres
+{
+    unsigned long long instructions;
+    unsigned long long memory;
+}Barometre;
+
 void swap(int *a, int *b);
 int randInt(int min, int max);
 void printIntArray(int* T, int n);
