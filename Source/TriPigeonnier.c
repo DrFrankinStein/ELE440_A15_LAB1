@@ -8,7 +8,7 @@ Barometre TriPigeonnier(int *iTableau, int DataCount, int iRang)
     iRang++;
     int iDenombrement[iRang];
     int i;
-    int j;
+    int j; // itérateur du tableau à renvoyer.
     
     barometre.memory = (2+iRang+2+1)*sizeof(int)+(2)*sizeof(int*);
     
@@ -19,15 +19,16 @@ Barometre TriPigeonnier(int *iTableau, int DataCount, int iRang)
         iDenombrement[i] = 0;
     }
     
-    // dénombrement des différentes valeurs.
+    // Placer chaque valeurs dans leur pigeonnier respectif.
     for (i = 0; i < DataCount; i++)
     {
         barometre.instructions++;
         iDenombrement[iTableau[i]]++;
     }
     
-    // remplacer avec les valeurs triées.
-    j = 0; // indice du tableau trié.
+    j = 0; // initialiser l'indice du tableau trié à retourner.
+    
+    // remplacer le vieux tableau non trié avec les valeurs triées du pigeonnier.
     for (i = 0; i < iRang; i++)
     {
         barometre.instructions++;
