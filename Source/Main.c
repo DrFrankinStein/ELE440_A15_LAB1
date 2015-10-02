@@ -34,7 +34,7 @@ int main(int argc, char** argv)
     
     LARGE_INTEGER start, end, average, frequency;
     Barometre barometre, avrgBarometre;
-    char nomTest[50] = "TriPigeonnier";
+    char nomTest[50] = "TriTas";
     
     //Initialisation des variables
     
