@@ -1,0 +1,22 @@
+pour le nombre de données que possède le tableau,
+	Pour le nombre de noeuds restant à trier,
+		Si le dernier noeud Possède deux feuilles,
+			S'il faut échanger la feuille de droite
+				Échanger la valeur de la feuille de droite avec la valeur du noeud.
+			Sinon s'il faut échanger avec la feuille de gauche
+				Échanger la valeur de la feuille de gauche avec la valeur du nœud
+			FIN DU SI
+		Sinon si le noeud ne possède qu'une feuille,
+			S'il faut échanger avec la feuille de gauche
+				Échanger la valeur de la feuille de gauche avec la valeur du nœud
+			FIN DU SI
+		FIN DU SI
+		Tant que je ne suis pas remonté au premier noeud,
+			Si la valeur du noeud permuté est plus grand que celle du noeud suppérieur,
+				Permuter avec la valeur suppérieur
+			FIN DU SI
+			remonter d'un noeud.
+		FIN DU TANT QUE
+	Remplacer la premiere valeur avec la dernière valeur.
+	Bloquer la derniere valeur permuté à la fin du tableau.
+FIN DU POUR
