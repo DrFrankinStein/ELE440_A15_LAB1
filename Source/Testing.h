@@ -12,7 +12,7 @@
     
 #define DESORDRE_MIN 0
 #define DESORDRE_MAX 100
-#define NFACTOR 100 //1000
+#define NFACTOR 1000 //100
 #define NSIZE 10
 #define RSIZE 4
 #define DSIZE 5

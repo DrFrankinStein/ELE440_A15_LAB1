@@ -2,8 +2,8 @@
 #include "CommonFunc.h"
 
 const int K[NSIZE] = {10,20,30,40,50,60,70,80,90,100};
-//const int R[RSIZE] = {100,10000,1000000,100000000};
-const int R[RSIZE] = {100,1000,10000,100000};
+const int R[RSIZE] = {100,10000,1000000,100000000};
+//const int R[RSIZE] = {100,1000,10000,100000};
 const int D[DSIZE] = {0,25,50,75,100};
 
 int TestJulien(void)

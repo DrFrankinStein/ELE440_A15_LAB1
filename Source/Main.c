@@ -34,7 +34,7 @@ int main(int argc, char** argv)
     
     LARGE_INTEGER start, end, average, frequency;
     Barometre barometre, avrgBarometre;
-    char nomTest[50] = "TriTas";
+    char nomTest[50] = "TriFusion";
     
     //Initialisation des variables
     
@@ -72,11 +72,11 @@ int main(int argc, char** argv)
                     QueryPerformanceCounter(&start);
                     
                     //barometre=TriParBase(T1,n,2*j+1);
-                    //barometre=TriParFusion(T1,0,n-1);
+                    barometre=TriParFusion(T1,0,n-1);
                     //barometre=TriParInsertion(T1,n);
                     //barometre=TriRapide(T1,0,n-1);
                     //barometre = TriPigeonnier(T1,n,r);
-                    barometre=TriParTas(T1,n);
+                    //barometre=TriParTas(T1,n);
                                         
                     QueryPerformanceCounter(&end);
                     writeDataFile(nomTest, n, r, d,barometre.instructions,barometre.memory, (int)((1000000*(end.QuadPart-start.QuadPart))/frequency.QuadPart));
