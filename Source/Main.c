@@ -11,6 +11,7 @@
 #include "Testing.h"
 #include <time.h>
 #include <windows.h>
+#include "CommonFunc.h"
 /*
  * 
  */
@@ -21,7 +22,6 @@ int main(int argc, char** argv)
 
     //Declaration des variables
    
-    int iSucces;
     int i; //iterateur pour nombre de donnees
     int j; //iterateur pour taille des nombres
     int k; //iterateur pour degre de desordre
@@ -33,8 +33,8 @@ int main(int argc, char** argv)
     
     
     LARGE_INTEGER start, end, average, frequency;
-    unsigned long long barometre, avrgBarometre;
-    char nomTest[50] = "TriRapide";
+    Barometre barometre, avrgBarometre;
+    char nomTest[50] = "TriPigeonnier";
     
     //Initialisation des variables
     
@@ -48,11 +48,12 @@ int main(int argc, char** argv)
     }
     
     writeDataFileInit(nomTest);
+    int T1[N[NSIZE-1]];
     
     for (i = 1; i <= NSIZE; i++)
     {
         n = N[i-1];
-        int T1[n];
+        //int T1[n];
         printf("Nombre de donnees = %i (%i/%i)\n\r",n,i,NSIZE);
         for(j = 1; j <= RSIZE; j++)
         {
@@ -63,28 +64,33 @@ int main(int argc, char** argv)
                 d = D[k-1];
                 printf("      (%i/%i) [%i%%] : ",k,DSIZE,d);
                 average.QuadPart = 0;
-                avrgBarometre = 0;
+                avrgBarometre.instructions = 0;
+                avrgBarometre.memory = 0;
                 for (m = 1; m <= 10; m++)
                 {
                     GenererDonnees(T1, n,r,d);
                     QueryPerformanceCounter(&start);
                     
-                    barometre=TriRapide(T1,0,n-1);
                     //barometre=TriParBase(T1,n,2*j+1);
                     //barometre=TriParFusion(T1,0,n-1);
                     //barometre=TriParInsertion(T1,n);
-                    
-                    
+                    //barometre=TriRapide(T1,0,n-1);
+                    //barometre = TriPigeonnier(T1,n,r);
+                    barometre=TriParTas(T1,n);
+                                        
                     QueryPerformanceCounter(&end);
-                    
-                    writeDataFile(nomTest, n, r, d,barometre, (int)((1000000*(end.QuadPart-start.QuadPart))/frequency.QuadPart));
+                    writeDataFile(nomTest, n, r, d,barometre.instructions,barometre.memory, (int)((1000000*(end.QuadPart-start.QuadPart))/frequency.QuadPart));
+                    //writeDataFile(nomTest, n, r, d,barometre, 0);
                     
                     average.QuadPart+=end.QuadPart-start.QuadPart;
-                    avrgBarometre+=barometre;
+                    avrgBarometre.instructions+=barometre.instructions;
+                    avrgBarometre.memory+=barometre.memory;
+                    
                     //printf("%i ", (int)((1000000*(end.QuadPart-start.QuadPart))/frequency.QuadPart));
                     //printf("%llu ", barometre);
                 }
-                printf("~%llu instr. ~%i us\n\r",avrgBarometre/10,(int)((average.QuadPart*1000000)/(10*frequency.QuadPart)));
+                printf("~%llu instr. ~%llukB ~%i us\n\r",avrgBarometre.instructions/10,(avrgBarometre.memory)/(10*1000),(int)((average.QuadPart*1000000)/(10*frequency.QuadPart)));
+                //printf("~%llu instr. ~%i us\n\r",avrgBarometre/10,0);
             }
         }
     }

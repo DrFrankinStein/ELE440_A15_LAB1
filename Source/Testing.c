@@ -1,7 +1,9 @@
 #include "Testing.h"
+#include "CommonFunc.h"
 
 const int K[NSIZE] = {10,20,30,40,50,60,70,80,90,100};
-const int R[RSIZE] = {100,10000,1000000,100000000};
+//const int R[RSIZE] = {100,10000,1000000,100000000};
+const int R[RSIZE] = {100,1000,10000,100000};
 const int D[DSIZE] = {0,25,50,75,100};
 
 int TestJulien(void)
@@ -112,7 +114,8 @@ void GenererDonnees (int *T, int N,int R, int D)
     //printIntArray(T, N);
     // Placer algorithme de notre choix ici pour trier les données.
     //TriParTas(T, N);
-    TriRapide(T,0,N-1);
+    //TriRapide(T,0,N-1);
+    TriParFusion(T,0,N-1);
     
     //printf("\ntrie\n");
     //printIntArray(T, N);
@@ -141,12 +144,12 @@ void writeDataFileInit(char * nomTri)
     if(file)
     {
         fprintf(file,"%s\n\n",nomTri);
-        fprintf(file,"Nombre de données, Intervalle des données, Taux de dispersion, nombre d'instructions, temps de traitement(us);\n");
+        fprintf(file,"Nombre de données, Intervalle des données, Taux de dispersion, nombre d'instructions,mémoire maximale(bytes), temps de traitement(us);\n");
     }
     fclose(file);
 }
 
-void writeDataFile(char * nomTri, int nbreDonnes, int rangeDonnees, int tauxDispersion,long long nbreInstructions, int tempsTraitement)//nom,Nombre de donnees, Range des donnees,taux de Dispersion, temps  
+void writeDataFile(char * nomTri, int nbreDonnes, int rangeDonnees, int tauxDispersion,unsigned long long nbreInstructions,unsigned long long memoireMax, int tempsTraitement)//nom,Nombre de donnees, Range des donnees,taux de Dispersion, temps  
 {
     FILE * file;
     char fileName[100];
@@ -157,7 +160,7 @@ void writeDataFile(char * nomTri, int nbreDonnes, int rangeDonnees, int tauxDisp
     if(file)
     {
         //fprintf(file,"%s\n\n\r",nomTri);
-        fprintf(file,"%i, %i, %i,%llu, %i;\n",nbreDonnes,rangeDonnees,tauxDispersion,nbreInstructions,tempsTraitement);
+        fprintf(file,"%i, %i, %i,%llu, %llu, %i;\n",nbreDonnes,rangeDonnees,tauxDispersion,nbreInstructions, memoireMax, tempsTraitement);
     }
     fclose(file);
 }
